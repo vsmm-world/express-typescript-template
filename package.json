@@ -1,27 +1,49 @@
 {
-  "name": "express-starting-api",
+  "name": "express-vercel-api",
   "version": "1.0.0",
-  "description": "Starting Express api with authentication ",
-  "main": "index.js",
+  "description": "Robust Express API with authentication and user CRUD",
+  "main": "dist/api/index.js",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc && npm run copy-views",
+    "copy-views": "node scripts/copy-views.js",
+    "start": "node dist/app.js",
+    "vercel-build": "tsc && npm run copy-views",
+    "vercel-dev": "vercel dev",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
-    "Express",
-    "Starting",
-    "App",
-    "with",
-    "Authentication"
+    "express",
+    "typescript",
+    "vercel",
+    "api"
   ],
-  "author": "Ravindra Valand",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.2"
+    "express-validator": "^7.0.1",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0"
   }
 }
+

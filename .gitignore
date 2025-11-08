@@ -1,2 +1,15 @@
-/.env
-/node_modules
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+.vercel
+
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
